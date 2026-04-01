@@ -332,7 +332,7 @@ export function ClientIndex() {
       <footer className="border-t border-border/50 py-8 mt-16">
         <div className="max-w-6xl mx-auto px-4 text-center">
           <p className="text-sm text-muted-foreground">
-            © 2024 SEO Audit Tool. Toate drepturile rezervate.
+            © {new Date().getFullYear()} SEO Audit Tool. Toate drepturile rezervate.
           </p>
         </div>
       </footer>
