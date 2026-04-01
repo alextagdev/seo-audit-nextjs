@@ -31,7 +31,7 @@ export function ClientIndex() {
         title: 'Analiză completă!',
         description: 'Raportul SEO a fost generat cu succes.',
       });
-    } catch (error) {
+    } catch (error: any) {
       console.error('Analysis error:', error);
 
       // Mock data for demo mode
@@ -249,9 +249,9 @@ export function ClientIndex() {
       setState('results');
 
       toast({
-        title: 'Mod Demo',
-        description: 'Backend-ul nu este disponibil. Se afișează date demonstrative.',
-        variant: 'default',
+        title: 'Analiza a eșuat (Mod Demo)',
+        description: error.message || 'Backend-ul nu este disponibil. Se afișează date demonstrative.',
+        variant: 'destructive',
       });
     }
   };
@@ -268,13 +268,13 @@ export function ClientIndex() {
         title: 'Raport trimis!',
         description: `Verifică inbox-ul pentru ${email}`,
       });
-    } catch (error) {
+    } catch (error: any) {
       console.error('Send report error:', error);
 
       toast({
-        title: 'Email înregistrat (Demo)',
-        description: `În modul demo, email-ul nu este trimis efectiv.`,
-        variant: 'default',
+        title: 'Trimitere nereușită',
+        description: error.message || 'A apărut o eroare la trimiterea raportului.',
+        variant: 'destructive',
       });
     } finally {
       setIsSubmittingEmail(false);
